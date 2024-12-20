@@ -1,17 +1,19 @@
 import {useState} from 'react'
 import './App.css'
-import Posts from "./components/posts";
-import PaginatedPosts from "./components/PaginationPost";
-import InfinitePosts from "./components/InfinitePost";
+import TodoForm from "./components/TodoForm";
+import TodoList from "./components/todos";
 
 function App() {
     const [count, setCount] = useState(0)
 
     return (
-        <InfinitePosts/>
-        // <PaginatedPosts/>
-        // <Posts/>
-        // <TodoList/>
+        <>
+            <TodoForm/>
+            <TodoList/>
+            {/*<InfinitePosts/>*/}
+            {/*<PaginatedPosts/>*/}
+            {/*<Posts/>*/}
+        </>
     )
 }
 

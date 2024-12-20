@@ -8,8 +8,8 @@ const TodoList = () => {
     if (error) return <div className="alert alert-danger m-5">{error.message}</div>
     if (isLoading) return <p>Loading.....</p>
     return (
-        <ul className="list-group m-5">
-            {todos?.map((todo) => (<li key={todo.id} className="list-group-item">{todo.title}</li>))}
+        <ul className="list-group m-3">
+            {todos?.map((todo, index) => (<li key={index} className="list-group-item">{todo.title}</li>))}
         </ul>
     );
 };
