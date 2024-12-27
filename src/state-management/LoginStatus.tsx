@@ -1,33 +1,34 @@
-import React, {useReducer, useState} from 'react';
-import authReducer from "./loginReducer";
+import React, {useContext} from 'react';
+import AuthContext from "./contexts/authContext";
 
 const LoginStatus = () => {
     // const [user, setUser] = useState('');
 
-    const [state, dispatch] = useReducer(authReducer, '');
+    // const [state, dispatch] = useReducer(authReducer, '');
 
-    if (state)
-        return (<nav className="navbar navbar-expand-lg navbar-light bg-light">
+
+    const {user, dispatch} = useContext(AuthContext);
+
+    if (user)
+        return (
             <ul className="nav">
                 <li className="nav-item">
-                    <a className="nav-link">{state}</a>
+                    <a className="nav-link">{user}</a>
                 </li>
                 <li className="nav-item">
                     <a onClick={() => dispatch({type: 'LOGOUT'})} className="nav-link active" href="#"> Logout</a>
                 </li>
             </ul>
-        </nav>)
+        )
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <ul className="nav">
-                    <li className="nav-item">
-                        <a onClick={() => {
-                            dispatch({type: 'LOGIN', userName: 'ebrahim.elmohamed26@gmail.com'})
-                        }} className="nav-link active" href="#">Login</a>
-                    </li>
-                </ul>
-            </nav>
+            <ul className="nav">
+                <li className="nav-item">
+                    <a onClick={() => {
+                        dispatch({type: 'LOGIN', userName: 'ebrahim.elmohamed26@gmail.com'})
+                    }} className="nav-link active" href="#">Login</a>
+                </li>
+            </ul>
         </>
     );
 };

@@ -1,12 +1,18 @@
-import React, {useReducer} from 'react';
+import React, {useContext, useReducer} from 'react';
 import taskReducer from "./taskReducer";
+import TaskContext from "./contexts/tasksContext";
+import AuthContext from "./contexts/authContext";
 
 
 const TaskList = () => {
     // const [tasks, setTasks] = useState<Task[]>([]);
-    const [tasks, dispatch] = useReducer(taskReducer, []);
+    // const [tasks, dispatch] = useReducer(taskReducer, []);
+    const {tasks, dispatch} = useContext(TaskContext);
+    const {user} = useContext(AuthContext);
+
     return (
         <div>
+            <p>User: ({user})</p>
             <button className="btn btn-primary my-3"
                     onClick={() =>
                         dispatch({

@@ -1,15 +1,31 @@
-import {useState} from 'react'
+import {useReducer, useState} from 'react'
 import './App.css'
-import TaskList from "./state-management/TaskList";
-import LoginStatus from "./state-management/LoginStatus";
+import NavBar from "./state-management/NavBar";
+import Home from "./state-management/Home";
+import TaskContext from "./state-management/contexts/tasksContext";
+import taskReducer from "./state-management/taskReducer";
+import AuthProvider from "./state-management/AuthProvider";
 
 function App() {
     const [count, setCount] = useState(0)
+    const [tasks, taskDispatch] = useReducer(taskReducer, []);
+
 
     return (
         <>
-            <LoginStatus/>
-            <TaskList/>
+            {/*           App
+              Home          NavBar
+              TaskList
+        */}
+            <AuthProvider>
+                <TaskContext.Provider value={{tasks, dispatch: taskDispatch}}>
+                    <NavBar/>
+                    <Home/>
+                </TaskContext.Provider>
+            </AuthProvider>
+
+            {/*<LoginStatus/>*/}
+            {/*<TaskList/>*/}
             {/*<Counter/>*/}
             {/*<TodoForm/>*/}
             {/*<TodoList/>*/}

@@ -1,4 +1,4 @@
-interface Task {
+export interface Task {
     id: number;
     title: string
 }
@@ -16,7 +16,7 @@ interface DeleteTask {
 }
 
 // Combine the two types
-type TaskAction = DeleteTask | AddTask;
+export type TaskAction = DeleteTask | AddTask;
 
 const taskReducer = (tasks: Task[], action: TaskAction): Task[] => {
     switch (action.type) {
