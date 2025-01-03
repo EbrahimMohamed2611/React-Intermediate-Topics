@@ -17,10 +17,10 @@ function App() {
         */}
       <AuthProvider>
         <TasksProvider>
+          <Counter />
           <NavBar />
           <Home />
         </TasksProvider>
-        <Counter />
       </AuthProvider>
 
       {/*<LoginStatus/>*/}

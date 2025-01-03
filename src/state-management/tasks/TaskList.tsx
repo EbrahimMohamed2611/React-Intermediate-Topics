@@ -1,17 +1,19 @@
 import useAuth from "../auth/useAuth";
 import { useContext } from "react";
 import TaskContext from "./tasksContext";
+import useAuthStore from "../auth/store";
 
 const useTasks = () => useContext(TaskContext);
 
 const TaskList = () => {
   const { tasks, dispatch } = useTasks();
 
-  const { user } = useAuth();
+  // const { user } = useAuth();
+  const { userName } = useAuthStore();
 
   return (
     <div>
-      <p>User: ({user})</p>
+      <p>User: ({userName})</p>
       <button
         className="btn btn-primary my-3"
         onClick={() =>

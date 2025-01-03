@@ -1,20 +1,18 @@
+import useAuthStore from "./store";
 import useAuth from "./useAuth";
 
 const LoginStatus = () => {
   const { user, dispatch } = useAuth();
+  const { userName, login, logout } = useAuthStore();
 
-  if (user)
+  if (userName)
     return (
       <ul className="nav">
         <li className="nav-item">
-          <a className="nav-link">{user}</a>
+          <a className="nav-link">{userName}</a>
         </li>
         <li className="nav-item">
-          <a
-            onClick={() => dispatch({ type: "LOGOUT" })}
-            className="nav-link active"
-            href="#"
-          >
+          <a onClick={() => logout()} className="nav-link active" href="#">
             {" "}
             Logout
           </a>
@@ -27,10 +25,7 @@ const LoginStatus = () => {
         <li className="nav-item">
           <a
             onClick={() => {
-              dispatch({
-                type: "LOGIN",
-                userName: "ebrahim.elmohamed26@gmail.com",
-              });
+              login("ebrahim.elmohamed26@gmail.com");
             }}
             className="nav-link active"
             href="#"
