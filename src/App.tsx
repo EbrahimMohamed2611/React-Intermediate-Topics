@@ -1,11 +1,9 @@
-import { useReducer, useState } from "react";
 import "./App.css";
 import NavBar from "./state-management/NavBar";
 import Home from "./state-management/Home";
-import TaskContext from "./state-management/contexts/tasksContext";
-import taskReducer from "./state-management/taskReducer";
-import AuthProvider from "./state-management/AuthProvider";
-import TasksProvider from "./state-management/TasksProvider";
+import AuthProvider from "./state-management/auth/AuthProvider";
+import { TasksProvider } from "./state-management/tasks";
+import Counter from "./state-management/counter/Countert";
 
 function App() {
   //   const [count, setCount] = useState(0);
@@ -22,11 +20,12 @@ function App() {
           <NavBar />
           <Home />
         </TasksProvider>
+        <Counter />
       </AuthProvider>
 
       {/*<LoginStatus/>*/}
       {/*<TaskList/>*/}
-      {/*<Counter/>*/}
+
       {/*<TodoForm/>*/}
       {/*<TodoList/>*/}
       {/*<InfinitePosts/>*/}
