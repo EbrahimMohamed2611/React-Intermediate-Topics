@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 function UsersListPage() {
   const users = [
-    { id: 1, name: "Ebrahim Mohamed" },
-    { id: 2, name: "Mohamed Hamza" },
-    { id: 3, name: "Taha El Fakharany" },
-    { id: 4, name: "Hamda Abd Rabou" },
-    { id: 5, name: "Salah El Gouhary" },
+    { id: 1, name: "Ebrahim Mohamed", age: 25, title: "Software-Engineer" },
+    { id: 2, name: "Mohamed Hamza", age: 27, title: "Back-End-Developer" },
+    { id: 3, name: "Taha El Fakharany", age: 28, title: "Front-End-Developer" },
+    { id: 4, name: "Hamda Abd Rabou", age: 29, title: "Application-Developer" },
+    { id: 5, name: "Salah El Gouhary", age: 30, title: "DEVOPS" },
   ];
   return (
     <div>
@@ -15,7 +15,11 @@ function UsersListPage() {
       <ul className="list-group mx-3">
         {users.map((user) => (
           <li className="list-group-item" key={user.id}>
-            <Link to={`/users/${user.id}`}>{user.name}</Link>
+            <Link
+              to={`/users/${user.id}?title=${user.title}&name=${user.name}&age=${user.age}`}
+            >
+              {user.name}
+            </Link>
           </li>
         ))}
       </ul>
