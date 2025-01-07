@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
-    <ul className="nav mx-3 my-3">
+    <ul className="nav mx-3 my-3 navbar-light bg-light">
       <li className="nav-item">
         <a className="nav-link active" aria-current="page" href="#">
           React App

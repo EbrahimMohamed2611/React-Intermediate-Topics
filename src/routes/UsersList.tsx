@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function UsersListPage() {
+function UsersList() {
   const users = [
     { id: 1, name: "Ebrahim Mohamed", age: 25, title: "Software-Engineer" },
     { id: 2, name: "Mohamed Hamza", age: 27, title: "Back-End-Developer" },
@@ -27,4 +27,4 @@ function UsersListPage() {
   );
 }
 
-export default UsersListPage;
+export default UsersList;
