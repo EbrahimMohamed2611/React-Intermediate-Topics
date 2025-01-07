@@ -1,7 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import useAuth from "./useAuth";
 
 function UsersList() {
+  // const { user } = useAuth();
+  // if (!user) return <Navigate to="/login" />;
+
   const users = [
     { id: 1, name: "Ebrahim Mohamed", age: 25, title: "Software-Engineer" },
     { id: 2, name: "Mohamed Hamza", age: 27, title: "Back-End-Developer" },
